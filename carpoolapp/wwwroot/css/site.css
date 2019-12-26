@@ -1,0 +1,133 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+/* customized styles*/
+
+.card {
+    margin-bottom: 40px !important;
+    
+}
+
+
+.comment-container {
+    /*   border: 1px solid red; */
+    margin-bottom: 10px !important;
+    border: 1px solid rgba(0,0,0,0.2) !important;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+.comment-avatar {
+    /*   border: 1px solid black; */
+    text-align: center;
+}
+
+.comment-date {
+    font-family: "Helvetica";
+    color: rgba(0,0,0,0.4);
+    font-size: 12.25px;
+}
+
+.comment-message p {
+    margin: 0;
+}
+
+img {
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+}
+
+
+.card-header, .card-footer {
+    background-color: #E4EA8C !important; 
+    color: black !important;
+}
+
+.card-header {
+    padding: 20px 10px !important;
+}
+
+.card-body {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
+body {
+    /*background-image: url('https://images.unsplash.com/photo-1520299607509-dcd935f9a839?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80');*/
+    /*background-image: url('https://images.unsplash.com/photo-1503079230625-8a7c589a9007?ixlib=rb-1.2.1&auto=format&fit=crop&w=562&q=80');*/
+    /*background-image: url('https://images.unsplash.com/photo-1508233620467-f79f1e317a05?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80'),*/
+    /*linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8));*/
+    background-color: #F2F2F2 !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+.trips-content {
+    /*border-color: black !important;*/
+    /*background-color: rgba(255,255,255, 0.8) !important;
+    border-radius: 5px !important;
+    border: 1px solid #c3c3c3 !important;*/
+}
+
+.footer {
+    background-color: #1C2231;
+}

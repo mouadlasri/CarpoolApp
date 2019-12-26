@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewData["Title"] = "EditCarpool";
+}
+
+@model carpoolapp.ViewModels.CarpoolsEditViewModel
+
+<div class="container" style="margin-top: 60px;">
+    <div class="card">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Trip edit mode</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0">
+
+            <!-- Form -->
+            <form class="text-center" style="color: #757575;" asp-controller="Home" asp-action="EditCarpool" method="post">
+
+                <div class="form-row">
+                    <div class="col">
+                        <!-- Departure -->
+                        <div class="md-form">
+                            <input asp-for="@Model.editTrip.Departure" type="text" id="edit-carpool-departure" class="form-control" value="@Model.editTrip.Departure">
+                            <label for="edit-carpool-departure">Departure</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- Destination -->
+                        <div class="md-form">
+                            <input asp-for="@Model.editTrip.Destination" type="text" id="edit-carpool-destination" class="form-control" value="@Model.editTrip.Destination">
+                            <label for="edit-carpool-destination">Destination</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meeting place -->
+                <div class="md-form mt-0">
+                    <input asp-for="@Model.editTrip.MeetingPlace" type="text" id="edit-carpool-meetingplace" class="form-control" value="@Model.editTrip.MeetingPlace">
+                    <label for="edit-carpool-meetingplace">Meeting place</label>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="col">
+                        <!-- Price -->
+                        <div class="md-form">
+                            <input asp-for="@Model.editTrip.Price" type="text" id="edit-carpool-price" class="form-control" value="@Model.editTrip.Price">
+                            <label for="edit-carpool-price">Price</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- Smoke free -->
+                        <div class="md-form">
+                            <select asp-for="@Model.editTrip.SmokeFree" class="custom-select form-control" id="inputGroupSelect02" placeholder="Smoke free?" style="padding-left: 10px;">
+                                <option value="Y">Smoke Free</option>
+                                <option value="N">Not Smoke Free</option>
+                            </select>
+                            @*<input asp-for="@Model.editTrip.SmokeFree" type="text" id="edit-carpool-smokefree" class="form-control" value="@Model.editTrip.SmokeFree">*@
+                            <label for="edit-carpool-smokefree"></label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <!-- Departure date -->
+                        <div class="md-form">
+                            <input asp-for="@Model.editTrip.DepartureDate" placeholder="Selected time" type="date" id="edit-carpool-date" class="form-control" value="@Model.editTrip.DepartureDate">
+                            <label for="edit-carpool-date">Select date</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- Departure time -->
+                        <div class="md-form">
+                            <input asp-for="@Model.editTrip.DepartureTime" placeholder="Selected time" type="time" id="edit-carpool-departuretime" class="form-control" value="@Model.editTrip.DepartureTime">
+                            <label for="edit-carpool-departuretime">Select time</label>
+                        </div>
+                    </div>
+                </div>
+                <input asp-for="@Model.editTrip.TripId" type="hidden" id="edit-carpool-departure" class="form-control" value="@Model.editTrip.TripId">
+
+                <button type="submit" class="btn btn-primary">Edit</button>
+
+            </form>
+            <!-- Form -->
+
+        </div>
+
+    </div>
+
+</div>

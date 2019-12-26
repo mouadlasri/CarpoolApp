@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+@model Credentials
+
+
+
+<div class="container" style="margin-top: 60px;">
+    <div class="row">
+        <div class="col-md-9" style="margin: 0 auto;">
+            <div class="card">
+
+                <h5 class="card-header info-color white-text text-center py-4">
+                    <strong>Log in</strong>
+                </h5>
+
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
+
+                    <!-- Form -->
+                    <form class="text-center" style="color: #757575;" asp-controller="Registration" asp-action="Login" method="post">
+                        <div class="md-form mt-3 ">
+                            <!-- Username -->
+                            <input asp-for="Username" id="login-username" class="form-control" maxlength="15" required>
+                            <label for="login-username">Username</label>
+                        </div>
+                        <div class="md-form mt-3 ">
+                            <!-- Username -->
+                            <input asp-for="UserPassword" id="login-password" type="password" class="form-control" maxlength="15" required>
+                            <label for="login-password">Password</label>
+                        </div>
+
+
+                        <!-- Sign up button -->
+                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Log in</button>
+
+                        <!-- Social register -->
+                        <p>You don't have an account?  <a asp-controller="Registration" asp-action="Register">Register</a></p>
+
+                        <hr>
+
+                        @if (ViewBag.Message != null)
+                        {
+                            <p style="color: red;">@ViewBag.Message</p>
+                        }
+
+                    </form>
+                    <!-- Form -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Material form register -->
+
+
+
+@*<div>
+    <form asp-controller="Registration" asp-action="Login" method="post">
+         Input and Submit elements 
+        <input asp-for="Username" />
+        <input type="password" asp-for="UserPassword" />
+        <button type="submit">Submit</button>
+    </form>
+   
+</div>*@

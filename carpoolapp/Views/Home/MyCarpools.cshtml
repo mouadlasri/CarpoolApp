@@ -1,0 +1,209 @@
+﻿
+@{
+    ViewData["Title"] = "MyCarpools";
+}
+
+
+
+@model carpoolapp.ViewModels.CarpoolsViewModel
+
+@* TODO: Replace this page with a proper landing page and move this to a navigation page *@
+
+<div class="container-fluid">
+    <partial name="_CookieConsentPartial" />
+    <main role="main" class="pb-3">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9" style="margin: 0 auto;">
+            <div class="form-row">
+                <div class="col-lg-6 col">
+
+                    <h1 style="margin-top:40px; margin-bottom:30px;" class=" btn btn-primary btn-lg text-white">
+                        My Carpools
+                    </h1>
+
+
+                </div>
+                <div class="col-lg-6 md-form mt-3">
+                    <input class=" form-control md-form  float-md-right pd-2" style="margin-top:40px; margin-bottom:30px; width: 70%" id="myInput" type="text" placeholder="Search..">
+
+                </div>
+            </div>
+            @foreach (var trip in Model.TripsList)
+            {
+                <!-- Card -->
+                <div class="card">
+                    <div class="card-header" style="text-align: center;">
+                        Posted on: @trip.DateCreated
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+
+                        <table id="dtMaterialDesignExample" class="table table-striped table-hover table-responsive-xl" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="th-sm">
+                                        TripID
+                                    </th>
+                                    <th class="th-sm">
+                                        Meeting Place
+                                    </th>
+                                    <th class="th-sm">
+                                        Departure
+                                    </th>
+                                    <th class="th-sm">
+                                        Departure Date
+                                    </th>
+                                    <th class="th-sm">
+                                        Destination
+                                    </th>
+                                    <th class="th-sm">
+                                        Price
+                                    </th>
+                                    <th class="th-sm">
+                                        Smoke Free
+                                    </th>
+                                    <th class="th-sm">
+                                        No Seats
+                                    </th>
+                                    <th class="th-sm">
+                                        No Max Seats
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="myTable">
+                                <tr>
+                                    <td>@trip.TripId</td>
+                                    <td>@trip.MeetingPlace</td>
+                                    <td>@trip.Departure</td>
+                                    <td>@trip.DepartureDate.ToShortDateString() @trip.DepartureTime </td>
+                                    <td>@trip.Destination</td>
+                                    <td>@trip.Price</td>
+                                    <td>@trip.SmokeFree</td>
+                                    <td>@trip.NbrOfSeatsOpen</td>
+                                    <td>@trip.NbrOfMaxSeats</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="collapse" id="@String.Format("T{0}", trip.TripId)">
+                            @foreach (var bk in Model.BookingsDetailsTripsList)
+                            {
+                                if (bk.TripId == trip.TripId)
+                                {
+
+                                    <div class="card card-body">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Date joined</th>
+                                                </tr>
+                                            </thead>
+                                            <tr>
+                                                <td>@bk.FirstName</td>
+                                                <td>@bk.LastName</td>
+                                                <td>@bk.PhoneNumber</td>
+                                                <td>@bk.BookingJoinDate</td>
+                                            </tr>
+
+                                        </table>
+
+                                    </div>
+
+
+                                }
+                            }
+
+                            @foreach (var comment in Model.CommentsTripsList)
+                            {
+                                if (comment.TripId == trip.TripId)
+                                {
+                                    <div class="container-fluid comment-container">
+                                        <div class="row">
+                                            <div class="comment-avatar col-1">
+                                                @if (comment.ProfilePicture != null)
+                                                {
+                                                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(comment.ProfilePicture)" alt="Alternate Text" />
+
+                                                }
+                                                else
+                                                {
+                                                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="Alternate Text" />
+
+                                                }
+                                            </div>
+                                            <div class="comment-message col-11">
+                                                <p>@comment.Username <span class="comment-date">@comment.Time_Created</span></p>
+                                                <p>@comment.CommentText</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                            @foreach (var comment in Model.CommentsTripsList)
+                            {
+                                if (comment.TripId == trip.TripId)
+                                {
+                                    <div class="container-fluid comment-container">
+                                        <div class="row">
+                                            <div class="comment-avatar col-1">
+                                                @if (comment.ProfilePicture != null)
+                                                {
+                                                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(comment.ProfilePicture)" alt="Alternate Text" />
+
+                                                }
+                                                else
+                                                {
+                                                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="Alternate Text" />
+
+                                                }
+                                            </div>
+                                            <div class="comment-message col-11">
+                                                <p>@comment.Username <span class="comment-date">@comment.Time_Created</span></p>
+                                                <p>@comment.CommentText</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                            <div class="card card-body">
+
+                                <form asp-controller="Home" asp-action="CreateComment" method="post">
+                                    <div class="form-group">
+                                        <label>Write a comment</label>
+                                        <textarea name="commentText" class="form-control" rows="3"></textarea>
+                                        <input type="hidden" name="tripId" value="@trip.TripId.ToString()" />
+                                        <button class="btn btn-sm btn-dark" type="submit">Send button</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+
+                        <div>
+
+                        </div>
+                    </div>
+                    <!-- End Card Body -->
+                    <!-- Card Footer Begin -->
+                    <div class="card-footer text-muted white-text text-center">
+                        <a class="btn btn-danger btn-md btn-0" asp-controller="Home" asp-action="MyCarpoolsDelete" asp-route-id="@trip.TripId">Delete</a>
+                        <a class="btn btn-primary btn-md btn-0" data-toggle="collapse" data-target='#@String.Format("T{0}", trip.TripId)' aria-controls="collapseExample">
+                            Details
+                        </a>
+                        <a class="btn btn-info btn-md btn-0" asp-controller="Home" asp-action="EditCarpool" asp-route-id="@trip.TripId">Edit</a>
+
+                    </div>
+                </div>
+            }
+        </div>
+       
+
+    </main>
+</div>
+
+

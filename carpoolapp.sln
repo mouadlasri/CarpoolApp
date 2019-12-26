@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "carpoolapp", "carpoolapp\carpoolapp.csproj", "{A0C67932-0C8E-4C91-B1E9-55F9588D8AA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0C67932-0C8E-4C91-B1E9-55F9588D8AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C67932-0C8E-4C91-B1E9-55F9588D8AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C67932-0C8E-4C91-B1E9-55F9588D8AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C67932-0C8E-4C91-B1E9-55F9588D8AA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {310C9028-8478-49B0-B041-6BD2FEDB23B5}
+	EndGlobalSection
+EndGlobal

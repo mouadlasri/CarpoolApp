@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewData["Title"] = "UserProfile";
+}
+
+
+@model UserProfileViewModel
+
+
+<div class="container bootstrap snippet" style="margin-top: 60px;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @if (ViewBag.UpdateMessage != null)
+            {
+                <h3 style="color: #ff0000; padding: 10px;font-size: 20px;text-align: center; margin-bottom: 20px;">Your profile has been updated!</h3>
+            }
+        </div>
+
+    </div>
+    <form class="form" asp-controller="Home" asp-action="EditProfile" method="post"  enctype="multipart/form-data"  id="registrationForm">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <!--left col-->
+
+                <div class="text-center">
+                    @if (Model.AppUser.ProfilePicture != null)
+                    {
+                        <img class="img-responsive full-width" style="height: 125px; width: 125px;" src="data:image/jpeg;base64,@Convert.ToBase64String(Model.AppUser.ProfilePicture)" />
+                    }
+                    else
+                    {
+                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail rounded-circle z-depth-0" style="height: 125px; width: 125px;" alt="avatar">
+                    }
+                    <h6>Upload a different photo...</h6>
+                    <input type="file" name="Image" class="text-center center-block file-upload">
+                </div></hr><br>
+
+                <ul class="list-group">
+                    <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                    <li class="list-group-item text-left"><span class="pull-right"><strong>Carpools Created</strong></span><span style="float: right;">@Model.analytics.NbrOfTripsCreated</span> </li>
+                    <li class="list-group-item text-left"><span class="pull-right"><strong>Memberships</strong></span><span style="float: right;">@Model.analytics.NbrOfTripsJoined</span></li>
+                    <li class="list-group-item text-left"><span class="pull-right"><strong>Trips Available</strong></span><span style="float: right;">@Model.analytics.NbrOfTripsAvailable</span></li>
+                </ul>
+            </div><!--/col-3-->
+            <div class="col-sm-9 col-md-9 col-lg-9">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home">
+                        <div class="col-sm-10"><h1>@Model.credentials.Username</h1></div>
+
+                        <hr>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="first_name"><h4>First name</h4></label>
+                                <input type="text" class="form-control" id="first_name" value="@Model.AppUser.FirstName" placeholder="first name" title="enter your first name if any." disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="last_name"><h4>Last name</h4></label>
+                                <input type="text" class="form-control" id="last_name" value="@Model.AppUser.LastName" placeholder="last name" title="enter your last name if any." disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="phone"><h4>Phone</h4></label>
+                                <input type="text" class="form-control" name="phone" id="phone" value="@Model.AppUser.PhoneNumber" placeholder="enter phone" title="enter your phone number if any."  min="0" max="9999999999">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="email"><h4>Email</h4></label>
+                                <input type="email" class="form-control" type="email" name="email" id="email" value="@Model.AppUser.EmailAddress" placeholder="you@email.com" title="enter your email.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="password"><h4>Password</h4></label>
+                                <input type="password" class="form-control" name="password" id="password" value="@Model.credentials.UserPassword" placeholder="password" title="enter your password.">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                    </div><!--/tab-pane-->
+
+
+                </div><!--/tab-pane-->
+            </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+
+    </form>
+
+</div><!--/row-->
+
+<!-- Material form register -->
